@@ -1,0 +1,40 @@
+{
+  "name": "ognom",
+  "main": "target/src/index.js",
+  "types": "target/src/index.d.ts",
+  "description": "Ognom.",
+  "version": "0.0.1",
+  "author": "CoNarrative, Inc.",
+  "keywords": [
+    "mongodb",
+    "mock",
+    "stub",
+    "in memory"
+  ],
+  "scripts": {
+    "test": "node_modules/.bin/tsc && node_modules/.bin/mocha target/test",
+    "prepare": "node_modules/.bin/tsc && cp -a target/src/. lib"
+  },
+  "engines": {
+    "node": "8.4.0"
+  },
+  "dependencies": {
+    "fs-extra": "^2.0.0",
+    "mongodb": "^2.2.31",
+    "mongodb-prebuilt": "^6.3.3",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/fs-extra": "~0.0.37",
+    "@types/mocha": "^2.2.43",
+    "@types/mongodb": "^2.2.13",
+    "@types/node": "^6.0.58",
+    "@types/node-uuid": "0.0.28",
+    "chai": "^4.1.2",
+    "mocha": "~2.2.4",
+    "typescript": "^2.5.3"
+  },
+  "repository": "CoNarrative/ognom",
+  "license": "Apache 2.0"
+}

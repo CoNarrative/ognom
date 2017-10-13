@@ -1,0 +1,7 @@
+node_modules/
+target
+*.idea
+*.log
+*.DS_Store
+.mongooseTempDB
+*.swp
