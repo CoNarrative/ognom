@@ -1,4 +1,4 @@
-# ognom [![npm](https://img.shields.io/npm/v/ognom.svg)]()
+# ognom [![npm](https://img.shields.io/npm/v/ognom.svg)]() [![npm](https://img.shields.io/npm/l/ognom.svg)]()
 Fake MongoDB for NodeJS
 
 ```js
