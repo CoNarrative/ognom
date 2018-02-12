@@ -3,7 +3,7 @@
   "main": "target/src/index.js",
   "types": "target/src/index.d.ts",
   "description": "Ognom.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "CoNarrative, Inc.",
   "keywords": [
     "mongodb",
