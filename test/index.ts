@@ -34,4 +34,9 @@ describe("Ognom", () => {
     expect(y._id.toHexString()).to.be.a("string")
     expect(y.cool).equals(false)
   })
+  it("dropDatabase", async () => {
+    await db.dropDatabase()
+    const x = await db.collections()
+    expect(x).to.deep.equal([])
+  })
 })
