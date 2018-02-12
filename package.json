@@ -36,5 +36,5 @@
     "typescript": "^2.7.1"
   },
   "repository": "https://github.com/CoNarrative/ognom",
-  "license": "Apache 2.0"
+  "license": "Apache-2.0"
 }
