@@ -11,23 +11,38 @@ export class Ognom {
 
   mongodHelper: MongodHelper = new MongodHelper();
 
-  constructor(public client: MongoClient) { }
+  constructor(public client?: MongoClient) { }
 
   async connect(): Promise<Db> {
     const tempDir = await this.getTempDBPath()
     const port = this.getPort()
-    const connString = this.makeConnectionString(port)
+    const connString = this.generateConnectionURL(port)
+    const dbName = this.generateDbName()
+    const mongoURL = connString + "/" + dbName
+
     this.mongodHelper.mongoBin.commandArguments = [
       '--port', port.toString(),
       '--storageEngine', "ephemeralForTest",
       '--dbpath', tempDir
     ]
-    await this.mongodHelper.run()
-    return await this.client.connect(connString)
+
+    try {
+      await this.mongodHelper.run()
+    } catch (e) {
+      console.info(e)
+    }
+    const conn:MongoClient = await MongoClient.connect(mongoURL)
+    const db:Db = conn.db(dbName)
+    return db
+
+    // return await this.client.connect(connString)
   }
 
-  makeConnectionString = (port: number): string =>
-    `mongodb://localhost:${port}/ognom-temp-db-${uuid.v4()}`;
+  generateDbName = (): string =>
+    `ognom-temp-db-${uuid.v4()}`
+
+  generateConnectionURL = (port: number): string =>
+    `mongodb://localhost:${port}`;
 
   incPort = (): number => state.currentPort += 1
 

@@ -1,11 +1,10 @@
 import {expect} from "chai"
-import {MongoClient} from "mongodb";
-import {Ognom} from "../src/index";
+import {Ognom} from "../src";
 import {ObjectID} from "bson";
 
 let db
 before(async () => {
-  const ognom = new Ognom(MongoClient)
+  const ognom = new Ognom()
   db = await ognom.connect()
 })
 describe("Ognom", () => {
